@@ -1,20 +1,38 @@
-let dni = prompt("Dame tu DNI");
-let suma_numeros = 0;
-let resto = 0;
-let numeros = parseInt(dni.substr(0, 7));
-let letra_dni = dni[8];
+const letras = [
+    "T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E","T",
+];
+function comprobarDNI() {
+    let suma_numeros = 0;
 
-function comprobarDNI(){
-
-    while(true){
+    do {
         let dni = prompt("Dame tu DNI");
-        
-        if(dni.length != 9 || !Number.isInteger(numeros) || ){
+        let numeros = parseInt(dni.substring(0, 8)); // Hay que poner 8 para que coja hasta el 7
+        let letra_dni = dni[8].toUpperCase();
+        if (dni.length != 9 || !Number.isInteger(numeros) || !letras.includes(letra_dni)) {
             alert("DNI incorrecto, vuelve a introducirlo");
-        } 
+        }
+        else {
+            let resto = numeros % 23;
+
+            console.log(numeros);
+            console.log(letras[resto]);
+            console.log(letra_dni);
+            console.log(resto);
+            if (letras[resto] == letra_dni) {
+
+                alert("DNI correcto");
+                break;
+            }
+
+        }
     }
-  
+    while (true) 
+
 }
 
-console.log(letra_dni);
+
+comprobarDNI();
+
+
+
 //charAt(0);//
