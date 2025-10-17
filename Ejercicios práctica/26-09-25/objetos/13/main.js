@@ -6,18 +6,28 @@ let alumnado = [
   { nombre: "Inés", edad: 31 }
 ];
 
-let ordenaEdad = alumnado.sort(function(alumnado, alumnado2) {
-  return alumnado.edad - alumnado2.edad;
-});
 
-let ordenaNombre = alumnado.sort((alumnado, alumnado2) => alumnado.nombre.localeCompare(alumnado2.nombre));
+/* Hay que poner el slice para que no se cambier el valor original*/
+let ordenaEdad = [];
+try {
+  ordenaEdad = alumnado.slice().sort(function (alumnado, alumnado2) {
+    return alumnado.edad - alumnado2.edad;
+  });
+}
+catch (err) {
+  console.error(err);
+}
 
-/*let ordenaNombre = alumnado.sort(function(alumnado, alumnado2) {
+
+
+let ordenaNombre = alumnado.slice().sort((alumnado, alumnado2) => alumnado.nombre.localeCompare(alumnado2.nombre));
+
+/*let ordenaNombre = alumnado.slice().sort(function(alumnado, alumnado2) {
   return alumnado.nombre.localeCompare(alumnado2.nombre);
 });*/
 
 console.log(ordenaEdad);
 console.log(ordenaNombre);
-
+console.log(alumnado);
 
 
