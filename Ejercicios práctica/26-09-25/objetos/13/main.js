@@ -7,6 +7,7 @@ let alumnado = [
 ];
 
 
+
 /* Hay que poner el slice para que no se cambier el valor original*/
 let ordenaEdad = [];
 try {
@@ -17,6 +18,7 @@ try {
 catch (err) {
   console.error(err);
 }
+console.log(ordenaEdad);
 
 
 
@@ -26,8 +28,8 @@ let ordenaNombre = alumnado.slice().sort((alumnado, alumnado2) => alumnado.nombr
   return alumnado.nombre.localeCompare(alumnado2.nombre);
 });*/
 
-console.log(ordenaEdad);
-console.log(ordenaNombre);
 console.log(alumnado);
+console.log(ordenaNombre);
+
 
 
